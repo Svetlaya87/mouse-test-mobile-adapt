@@ -83,8 +83,8 @@ button {
 
 
 canvas {
-    width: 800px;
-    height: 600px;
+    width: 1200px;
+    height: 632px;
     padding: 10px;
     border: 1px dashed rgb(132, 132, 132);
     box-shadow: 0px 0px 16px rgb(132, 132, 132);
