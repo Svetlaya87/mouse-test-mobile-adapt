@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./main.js"></script>
+</head>
+<body style="padding: 20px;">
+    <!--//1 штмл файл, должно работать без интернета
+    //2) показывает, выводи на экран как кнопка мыши активна
+    // чтобы выделалялся клик цветом хотя бы раз
+    // паинт , делать горизонтальную линию-->
+    <div class="container-sv">
+        <div class="menu">
+            <button id="screen">Full Screen</button>
+            <div id="mouse-key">
+                <div id="left-key" type="button" >left key</div>
+                <div id ='right-key' type="button" >right-key</div>
+                <div id="mouse-wheel" type="button" >mouse-wheel</div>
+                <div id="scroll-up" type="button" >scroll-up</div>
+                <div id="scroll-down" type="button" >scroll-down</div>
+                
+                <!--
+                <div id="blablabla" type="button" oncontextmenu="return false;" style="height: 50px; width:200px">BLABLABLA-ALL-EVENTS-GO-HERE</div>
+                -->
+                
+                
+
+            </div>
+            <div id="colors">
+                <div id="red" ></div>
+                <div id="white"></div>
+            </div>
+        </div>
+        <canvas oncontextmenu="return false;"></canvas>
+    </div>
+</body>
+</html>
