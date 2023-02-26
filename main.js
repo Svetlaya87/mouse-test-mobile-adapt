@@ -8,14 +8,19 @@ let canvas = document.querySelector('canvas');
 
 
 function handleClickdown_serge(e) {
+    // в функции handleClickdown_sergeup мы добавили transitionDuration, т.к там нужен был плавные переход, а здесь плавный переход не нужен поэтому все значения в ноль.
     
     leftKey.style.transitionDuration =null;
+    leftKey.style.transitionProperty =null;
     mouseWheel.style.transitionDuration =null;
+    mouseWheel.style.transitionProperty =null;
     rightKey.style.transitionDuration =null;
+    rightKey.style.transitionProperty =null;
+
 
     if (e.button == 0){//left
         leftKey.style.backgroundColor = "#20B2AA";
-    }else if (e.button == 1){//whele
+    }else if (e.button == 1){//whele-колесо
         mouseWheel.style.backgroundColor = "#FF69B4";
     }else if(e.button == 2){//right
         rightKey.style.backgroundColor = "#2E8B57";
@@ -35,6 +40,7 @@ function handleClickdown_sergeup(e) {
     }
 
     setTimeout(
+        // задача, чтобы цвет отжатых кнопок плавно затухали на белый, но т.к здесь добавляется свойство transitionProperty, то при нажатой кнопки этой же свойство остается и в функции handleClickdown_serge приходится все транзишины обнулять
         function() {
             //el.removeEventListener('mouseup', handleClickdown_sergeup);
             for(i=0; i<arr.length; i++){
@@ -56,7 +62,7 @@ el.addEventListener('mouseup', handleClickdown_sergeup);
     function zoom(event) {
         event.preventDefault();
         let arr = [scrollDown, scrollUp];
-
+        //обнуляем transitionDuration, transitionProperty, т.к будет плавный переход от НАжатой кнопки, а нужен плавные переход цвета в белый от ОТжатой кнопки.
         scrollDown.style.transitionDuration = null;
         scrollDown.style.transitionProperty =null;
 
@@ -77,6 +83,7 @@ el.addEventListener('mouseup', handleClickdown_sergeup);
 
         setTimeout(
             function() {
+                // цвет отжатой кнопки плавно переходит в белый. Задержка 1000, иначе затухание происходит одновременно с кодом, где присваивается цвет нажатой кнопки, т.е затухание происходит от цвета НАжатой кнопки, а должно быть от цвета ОТжатой.
                 //el.removeEventListener('mouseup', handleClickdown_sergeup);
                 for(i=0; i<arr.length; i++){
                     arr[i].style.backgroundColor = "#FFFFFF";
