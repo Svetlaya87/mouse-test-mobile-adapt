@@ -37,6 +37,8 @@ body {
     justify-content: center;
 }
 
+
+
 #mouse-key div {
     height: 50px;
     border: 1px solid grey; 
@@ -44,8 +46,18 @@ body {
     padding: 4px;
     text-align: center;
     vertical-align: middle;
+
+    /*transition-property: background-color;
+    transition-duration: 3s;*/
     
 }
+/*
+.transition {
+    background-color: white;
+    transition-property: background-color;
+    transition-duration: 3s;
+}*/
+
 #colors {
     
     display: grid;

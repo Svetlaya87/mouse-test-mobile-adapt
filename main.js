@@ -9,7 +9,10 @@ let canvas = document.querySelector('canvas');
 
 function handleClickdown_serge(e) {
     
-   
+    leftKey.style.transitionDuration =null;
+    mouseWheel.style.transitionDuration =null;
+    rightKey.style.transitionDuration =null;
+
     if (e.button == 0){//left
         leftKey.style.backgroundColor = "#20B2AA";
     }else if (e.button == 1){//whele
@@ -18,9 +21,11 @@ function handleClickdown_serge(e) {
         rightKey.style.backgroundColor = "#2E8B57";
     }
 }
+
 function handleClickdown_sergeup(e) {
+    let arr = [leftKey, mouseWheel, rightKey];
     
-   
+        
     if (e.button == 0){//left
         leftKey.style.backgroundColor = "#00FFFF";
     }else if (e.button == 1){//whele
@@ -28,6 +33,20 @@ function handleClickdown_sergeup(e) {
     }else if(e.button == 2){//right
         rightKey.style.backgroundColor = "#98FB98";
     }
+
+    setTimeout(
+        function() {
+            //el.removeEventListener('mouseup', handleClickdown_sergeup);
+            for(i=0; i<arr.length; i++){
+                arr[i].style.backgroundColor = "#FFFFFF";
+                arr[i].style.transitionProperty = 'background-color';
+                arr[i].style.transitionDuration ='3s';
+            }
+            
+        }
+    , 500);
+
+    
 }
 
 let el = canvas;//document.getElementById('blablabla');
@@ -36,6 +55,13 @@ el.addEventListener('mouseup', handleClickdown_sergeup);
 
     function zoom(event) {
         event.preventDefault();
+        let arr = [scrollDown, scrollUp];
+
+        scrollDown.style.transitionDuration = null;
+        scrollDown.style.transitionProperty =null;
+
+        scrollUp.style.transitionDuration = null;
+        scrollUp.style.transitionProperty =null;
     
         if(event.deltaY>0){
             scrollDown.style.backgroundColor = '#556B2F';
@@ -48,6 +74,19 @@ el.addEventListener('mouseup', handleClickdown_sergeup);
                 function() {scrollUp.style.backgroundColor = '#20B2AA';}
                 , 500);
         }
+
+        setTimeout(
+            function() {
+                //el.removeEventListener('mouseup', handleClickdown_sergeup);
+                for(i=0; i<arr.length; i++){
+                    arr[i].style.backgroundColor = "#FFFFFF";
+                    arr[i].style.transitionProperty = 'background-color';
+                    arr[i].style.transitionDuration ='3s';
+                }
+                
+            }
+        , 1000);
+    
     
     }
 
